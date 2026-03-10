@@ -272,7 +272,7 @@
   <div class="stars"></div>
 
   <header>
-    <h1>DART OOP LAB</h1>
+    <h1>KONSTRUKTOR DAN ENKAPSULASI</h1>
     <p>Uliya Gumpari | 251410008 | Kelas: SI2A</p>
   </header>
 
@@ -345,7 +345,7 @@ void main() {
 </section>
 
     <section>
-      <h2>02. Constant Constructor</h2>
+      <h2>03. Constant Constructor</h2>
       <p>Constant constructor adalah constructor yang digunakan untuk membuat objek konstan. Constructor ini biasanya digunakan
         ketika semua atribut pada class bersifat final, sehingga nilai objek tidak dapat diubah setelah dibuat.
       </p>
@@ -380,7 +380,7 @@ void main() {
     </section>
 
     <section>
-      <h2>03. Initializer List</h2>
+      <h2>04. Initializer List</h2>
       <p>Initializer list adalah cara untuk menginisialisasi nilai atribut sebelum constructor dijalankan. Teknik ini biasanya
         digunakan ketika nilai atributperlu diproses terlebih dahulu, misalnya mengambil nilai absolut dari suatu angka sebelum
         disimpan ke dalam atribut.</p>
@@ -417,7 +417,7 @@ void main(){
     </section>
 
     <section>
-      <h2>04. Public & Private</h2>
+      <h2>05. Public & Private</h2>
       <p>Public dan private digunakan untuk mengatur tingkat akses terhadap atribut atau method dalam sebuah class.
         Dalam Object Oriented Programming, atribut yang diawali dengan tanda _ dianggap private,
         artinya atribut tersebut hanya dapat diakses dari dalam class yang sama.</p>
@@ -446,7 +446,7 @@ void main() {
     </section>
 
     <section>
-      <h2>05. Getter</h2>
+      <h2>06. Getter</h2>
       <p>Getter adalah method yang digunakan untuk mengambil atau membaca nilai atribut dari sebuah class.  Getter biasanya
         digunakan ketika atribut bersifat private sehingga nilai tersebut tidak dapat diakses secara langsung dari luar class.
       </p>
@@ -484,7 +484,7 @@ void main() {
     </section>
 
     <section>
-      <h2>06. Setter</h2>
+      <h2>07. Setter</h2>
       <p>Setter adalah method yang digunakan untuk mengubah atau memperbarui nilai atribut dalam sebuah class.
         Dengan setter, perubahan nilai atribut dapat dikontrol sehingga data tetap valid.</p>
 
@@ -529,7 +529,7 @@ void main() {
     </section>
 
     <section>
-      <h2>07. Encapsulation pada Product</h2>
+      <h2>08. Encapsulation pada Product</h2>
       <p>Encapsulation adalah konsep dalam OOP yang digunakan untuk menyembunyikan data dan mengatur akses terhadap data tersebut melalui method tertentu.
         Pada contoh produk, atribut disembunyikan dan hanya dapat diakses melalui getter dan setter yang memiliki validasi tertentu.</p>
 
@@ -580,7 +580,7 @@ void main() {
     </section>
 
     <section>
-      <h2>08. Encaptulation pada Login System</h2>
+      <h2>09. Encaptulation pada Login System</h2>
       <p>Encapsulation juga dapat digunakan dalam sistem login untuk melindungi data penting seperti password.
         Pada contoh ini, password tidak dapat diakses langsung dari luar class. Pengguna hanya dapat
         melakukan proses login atau mengganti password melalui method yang telah disediakan..</p>
@@ -624,8 +624,8 @@ void main() {
     </section>
 
     <section>
-      <h2>9. Bonus: Burung Class</h2>
-      <p>Contoh tambahan penggunaan class untuk memodelkan makhluk hidup seperti burung dengan perilaku terbang.</p>
+      <h2>10. Bonus Tugas Latihan</h2>
+      <p>.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -633,15 +633,21 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Burung {
-  String nama;
-  String warna;
+<section>
+  <h2>03. Latihan</h2>
 
-  Burung(this.nama, this.warna);
+  <ul>
+    <li>Buat class <span class="highlight">RekeningBank</span> dengan:</li>
+    <ul>
+      <li>Field private: <code>_nomorRekening</code>, <code>_saldo</code></li>
+      <li>Method: <code>deposit()</code>, <code>tarik()</code>, <code>cekSaldo()</code></li>
+      <li>Validasi: saldo tidak boleh negatif</li>
+    </ul>
 
-  void terbang() {
-    print('$nama sedang terbang!');
-  }
+    <li>Buat program sederhana untuk simulasi transaksi.</li>
+  </ul>
+
+</section>
 }</code></pre>
       </div>
 
