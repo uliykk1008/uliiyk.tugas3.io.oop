@@ -402,8 +402,10 @@ void main(){
     </section>
 
     <section>
-      <h2>04. Constant Constructor</h2>
-      <p>Constant constructor digunakan untuk membuat objek yang nilainya tidak berubah karena menggunakan atribut.</p>
+      <h2>04. Public & Private</h2>
+      <p>Public dan private digunakan untuk mengatur tingkat akses terhadap atribut atau method dalam sebuah class.
+        Dalam Object Oriented Programming, atribut yang diawali dengan tanda _ dianggap private,
+        artinya atribut tersebut hanya dapat diakses dari dalam class yang sama.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -411,17 +413,16 @@ void main(){
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Warna {
-  final int r;
-  final int g;
-  final int b;
+class Person {
+  String _name;
+  int age;
 
-  const Warna(this.r, this.g, this.b);
+  Person(this._name, this.age);
 }
 
 void main() {
-  const biru = Warna(0, 0, 255);
-  print("RGB: ${biru.r}, ${biru.g}, ${biru.b}");
+  Person person = Person("Salma", 20);
+  print(person.age);
 }
 }</code></pre>
       </div>
@@ -430,8 +431,9 @@ void main() {
     </section>
 
     <section>
-      <h2>05. Initializer List</h2>
-      <p>Initializer list digunakan untuk menginisialisasi nilai atribut sebelum constructor dijalankan.
+      <h2>05. Getter</h2>
+      <p>Getter adalah method yang digunakan untuk mengambil atau membaca nilai atribut dari sebuah class.  Getter biasanya
+        digunakan ketika atribut bersifat private sehingga nilai tersebut tidak dapat diakses secara langsung dari luar class.
       </p>
 
       <div class="code-container">
@@ -440,23 +442,25 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Lingkaran {
-  final double r;
-  final double luas;
+class Person {
+  String _name;
+  int age;
 
-  Lingkaran(double radius)
-      : r = radius,
-        luas = 3.14 * radius * radius;
+  Person(this._name, this.age);
 
-  void tampil() {
-    print("Jari-jari: $r");
-    print("Luas: $luas");
+  String get getName1 {
+    return _name;
+  }
+
+  String getName() {
+    return _name;
   }
 }
 
 void main() {
-  var l = Lingkaran(7);
-  l.tampil();
+  Person person = Person("Salma", 20);
+  print(person.getName());
+  print(person.getName1);
 }
 }</code></pre>
       </div>
