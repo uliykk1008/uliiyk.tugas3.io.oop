@@ -280,8 +280,9 @@
 
     <section>
       <h2>01. Constructor & Named Constructor</h2>
-      <p>Constructor adalah method khusus dalam class yang otomatis dipanggil ketika objek dibuat. Constructor digunakan untuk memberikan nilai awal pada atribut objek.
-Selain constructor biasa, dalam Dart juga terdapat named constructor, yaitu constructor yang memiliki nama tambahan sehingga objek dapat dibuat dengan cara yang berbeda sesuai kebutuhan. .</p>
+      <p>Constructor adalah method khusus dalam class yang otomatis dipanggil ketika objek dibuat. Constructor digunakan untuk 
+        memberikan nilai awal pada atribut objek.Selain constructor biasa, dalam Dart juga terdapat named constructor, yaitu
+        constructor yang memiliki nama tambahan sehingga objek dapat dibuat dengan cara yang berbeda sesuai kebutuhan. .</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -329,8 +330,9 @@ void main() {
     </section>
 
     <section>
-      <h2>02. Default Constructor</h2>
-      <p>Default constructor adalah constructor yang digunakan langsung saat objek dibuat tanpa perlu membuat constructor tambahan.
+      <h2>02. Constant Constructor</h2>
+      <p>Constant constructor adalah constructor yang digunakan untuk membuat objek konstan. Constructor ini biasanya digunakan
+        ketika semua atribut pada class bersifat final, sehingga nilai objek tidak dapat diubah setelah dibuat.
       </p>
 
       <div class="code-container">
@@ -339,25 +341,22 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Buku {
-  String? judul;
-  int? tahun;
+class Warna {
+  final int r, g, b;
+  const Warna(this.r, this.g, this.b);
 
-  Buku(this.judul, this.tahun);
-
-  Buku.baru() {
-    judul = "Pemrograman Dart";
-    tahun = 2024;
-  }
-
-  void tampil() {
-    print("$judul - $tahun");
+  @override
+  String toString() {
+    return 'Warna(r: $r, g: $g, b: $b)';
   }
 }
 
 void main() {
-  var b = Buku.baru();
-  b.tampil();
+  const merah = Warna(255, 0, 0);
+  const merahLagi = Warna(255, 0, 0);
+
+  print(merah);
+  print(merahLagi);
 }
 }</code></pre>
       </div>
@@ -366,8 +365,10 @@ void main() {
     </section>
 
     <section>
-      <h2>03. Named Constructor</h2>
-      <p>Named constructor memungkinkan pembuatan objek dengan cara yang berbeda menggunakan nama constructor tambahan.</p>
+      <h2>03. Initializer List</h2>
+      <p>Initializer list adalah cara untuk menginisialisasi nilai atribut sebelum constructor dijalankan. Teknik ini biasanya
+        digunakan ketika nilai atributperlu diproses terlebih dahulu, misalnya mengambil nilai absolut dari suatu angka sebelum
+        disimpan ke dalam atribut.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -375,21 +376,24 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Laptop {
-  String merk;
-  int ram;
+class Titik {
+  final double x, y;
 
-  Laptop(this.merk, this.ram);
-
-  void tampil() {
-    print("Laptop: $merk");
-    print("RAM: ${ram}GB");
+  Titik(double x, double y)
+      : x = x.abs(),
+        y = y.abs() {
+    print('Titik dibuat di (${this.x}, ${this.y})');
   }
 }
 
-void main() {
-  var l = Laptop("Asus", 8);
-  l.tampil();
+void main(){
+  var titik1 = Titik(3.0, 4.0);
+  var titik2 = Titik(-5.0, 10.0);
+  var titik3 = Titik(-1.5, -2.5);
+
+  print(titik1.x);
+  print(titik2.x);
+  print(titik3.x);
 }
 }</code></pre>
       </div>
