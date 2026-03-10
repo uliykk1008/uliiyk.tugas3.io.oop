@@ -469,8 +469,9 @@ void main() {
     </section>
 
     <section>
-      <h2>06. Public dan Private</h2>
-      <p>Public dan private digunakan untuk mengatur akses terhadap atribut dalam class..</p>
+      <h2>06. Setter</h2>
+      <p>Setter adalah method yang digunakan untuk mengubah atau memperbarui nilai atribut dalam sebuah class.
+        Dengan setter, perubahan nilai atribut dapat dikontrol sehingga data tetap valid.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -478,14 +479,25 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Akun {
-  String username = "uliya";
-  String _password = "12345";
+class Person {
+  String _name;
+  int age;
+
+  Person(this._name, this.age);
+
+  String get getName1 {
+    return _name;
+  }
+
+  String getName() {
+    return _name;
+  }
 }
 
 void main() {
-  var akun = Akun();
-  print("Username: ${akun.username}");
+  Person person = Person("Salma", 20);
+  print(person.getName());
+  print(person.getName1);
 }
 }</code></pre>
       </div>
@@ -494,8 +506,9 @@ void main() {
     </section>
 
     <section>
-      <h2>07. Getter dan setter</h2>
-      <p>Getter dan setter digunakan untuk mengambil dan mengubah nilai atribut secara terkontrol.</p>
+      <h2>07. Encapsulation</h2>
+      <p>Encapsulation adalah konsep dalam OOP yang digunakan untuk menyembunyikan data dan mengatur akses terhadap data tersebut melalui method tertentu.
+        Pada contoh produk, atribut disembunyikan dan hanya dapat diakses melalui getter dan setter yang memiliki validasi tertentu.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -503,22 +516,39 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class User {
-  String _nama = "";
+class Produk {
+  String _nama;
+  double _harga;
+
+  Produk(this._nama, this._harga);
+
+  String get nama => _nama;
+  double get harga => _harga;
 
   set nama(String value) {
     if (value.length >= 3) {
-      _nama = value
+      _nama = value;
     }
   }
 
-  String get nama => _nama;
+  set harga(double value) {
+    if (value > 0) {
+      _harga = value;
+    }
+  }
 }
 
 void main() {
-  var u = User();
-  u.nama = "Uliya";
-  print("Nama: ${u.nama}");
+  var produk1 = Produk('Monitor Samsung', 3500.0);
+
+  print(produk1.nama);
+  print(produk1.harga);
+
+  produk1.nama = 'Keyboard';
+  produk1.harga = 1200.0;
+
+  print(produk1.nama);
+  print(produk1.harga);
 }
 }</code></pre>
       </div>
