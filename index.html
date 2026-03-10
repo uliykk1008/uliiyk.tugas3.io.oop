@@ -623,18 +623,8 @@ void main() {
       <button onclick="openModal('https://dartpad.dev/?id=76eba14427fb1c7a95b2bc2b0cb0a4e4&run=true')">Run Program</button>
     </section>
 
-    <section>
-      <h2>10. Bonus Tugas Latihan</h2>
-      <p>.</p>
-
-      <div class="code-container">
-        <div class="code-header">DART SOURCE CODE</div>
-        <pre><code>// Nama   : Uliya Gumpari
-// Nim    : 251410008
-// Kelas  : SI2A
-
-<section>
-  <h2>03. Latihan</h2>
+      <section>
+  <h2>10. Latihan</h2>
 
   <ul>
     <li>Buat class <span class="highlight">RekeningBank</span> dengan:</li>
@@ -648,10 +638,59 @@ void main() {
   </ul>
 
 </section>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+          class RekeningBank {
+  String _nomorRekening;
+  double _saldo;
+
+  RekeningBank(this._nomorRekening, this._saldo);
+
+  void deposit(double jumlah) {
+    if (jumlah > 0) {
+      _saldo += jumlah;
+      print('Deposit berhasil: Rp $jumlah');
+    } else {
+      print('Jumlah deposit tidak valid');
+    }
+  }
+
+  void tarik(double jumlah) {
+    if (jumlah > _saldo) {
+      print('Saldo tidak mencukupi');
+    } else if (jumlah <= 0) {
+      print('Jumlah penarikan tidak valid');
+    } else {
+      _saldo -= jumlah;
+      print('Penarikan berhasil: Rp $jumlah');
+    }
+  }
+
+  void cekSaldo() {
+    print('Saldo saat ini: Rp $_saldo');
+  }
+}
+
+void main() {
+  var rekening = RekeningBank("123456789", 1000000);
+
+  print('--- Simulasi Transaksi ---');
+
+  rekening.cekSaldo();
+  rekening.deposit(500000);
+  rekening.cekSaldo();
+  rekening.tarik(300000);
+  rekening.cekSaldo();
+}
+
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=c82d66fb93d07a40f7786263a6c7b121')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=b87f6c0c3746e4602455e06649ed1def')">Run Program</button>
     </section>
 
   </div>
