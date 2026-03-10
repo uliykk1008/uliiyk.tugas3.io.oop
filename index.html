@@ -506,7 +506,7 @@ void main() {
     </section>
 
     <section>
-      <h2>07. Encapsulation</h2>
+      <h2>07. Encapsulation pada Product</h2>
       <p>Encapsulation adalah konsep dalam OOP yang digunakan untuk menyembunyikan data dan mengatur akses terhadap data tersebut melalui method tertentu.
         Pada contoh produk, atribut disembunyikan dan hanya dapat diakses melalui getter dan setter yang memiliki validasi tertentu.</p>
 
@@ -557,8 +557,10 @@ void main() {
     </section>
 
     <section>
-      <h2>08. Enklapsulasi</h2>
-      <p>Enkapsulasi adalah konsep OOP untuk menyembunyikan data dan memberikan akses melalui method.</p>
+      <h2>08. Encaptulation pada Login System</h2>
+      <p>Encapsulation juga dapat digunakan dalam sistem login untuk melindungi data penting seperti password.
+        Pada contoh ini, password tidak dapat diakses langsung dari luar class. Pengguna hanya dapat
+        melakukan proses login atau mengganti password melalui method yang telah disediakan..</p>
        <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
         <pre><code>// Nama   : Uliya Gumpari
@@ -566,32 +568,31 @@ void main() {
 // Kelas  : SI2A
 
 class User {
-  String _username = "";
-  String _email = "";
+  String _username;
+  String _password;
 
-  set username(String value) {
-    if (value.length >= 5) {
-      _username = value;
-    }
+  User(this._username, this._password);
+
+  String get username => _username;
+
+  bool login(String username, String password) {
+    return _username == username && _password == password;
   }
 
-  set email(String value) {
-    if (value.contains("@")) {
-      _email = value;
+  void gantiPassword(String lama, String baru) {
+    if (_password == lama && baru.length >= 8) {
+      _password = baru;
+      print('Password berhasil diubah');
     }
-  }
-
-  void tampil() {
-    print("Username: $_username");
-    print("Email: $_email");
   }
 }
 
 void main() {
-  var user = User();
-  user.username = "uliya12";
-  user.email = "uliya@gmail.com";
-  user.tampil();
+  final user1 = User('admin', 'password123');
+
+  print(user1.login('admin', 'password123'));
+
+  user1.gantiPassword('password123', 'passwordBaru123');
 }
 }</code></pre>
       </div>
