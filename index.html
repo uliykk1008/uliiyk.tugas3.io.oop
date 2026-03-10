@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,101 +11,172 @@
 <style>
 
 *{
-box-sizing:border-box;
 margin:0;
 padding:0;
+box-sizing:border-box;
 font-family:Arial;
 }
 
 body{
-background:black;
+
+background:
+radial-gradient(circle at 20% 20%, #1e293b, transparent),
+radial-gradient(circle at 80% 40%, #1e3a8a, transparent),
+radial-gradient(circle at 40% 80%, #0f172a, transparent),
+#020617;
+
 color:white;
+
+min-height:100vh;
+
 overflow-x:hidden;
+
 }
 
-/* GALAXY */
+/* CANVAS */
+
 canvas{
+
 position:fixed;
 top:0;
 left:0;
 z-index:-1;
+
 }
 
 /* HEADER */
+
 header{
+
 text-align:center;
-padding:40px 15px;
+padding:60px 20px;
+
 }
 
 header h1{
-font-size:clamp(22px,4vw,36px);
+
+font-size:clamp(24px,4vw,42px);
+
 color:#38bdf8;
+
+text-shadow:0 0 25px #0ea5e9;
+
 }
 
 header p{
-margin-top:8px;
+
+margin-top:10px;
+
 color:#cbd5f5;
-font-size:14px;
+
 }
 
 /* GRID */
+
 .container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-padding:25px;
+
 max-width:1200px;
+
 margin:auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+padding:30px;
+
 }
 
 /* CARD */
+
 .card{
 
-background:rgba(0,0,0,0.6);
-border:1px solid #22d3ee;
+background:rgba(255,255,255,0.05);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.1);
+
 border-radius:15px;
-padding:22px;
+
+padding:25px;
 
 transition:0.4s;
-box-shadow:0 0 10px #0ea5e9;
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
 .card:hover{
 
-transform:translateY(-8px) scale(1.03);
+transform:translateY(-10px);
 
-box-shadow:0 0 25px #22d3ee;
+box-shadow:0 0 25px #38bdf8;
+
+border:1px solid #38bdf8;
 
 }
 
 .card h2{
-color:#22d3ee;
+
+color:#38bdf8;
+
 margin-bottom:10px;
-font-size:18px;
+
 }
 
 .card p{
+
 font-size:14px;
+
 line-height:1.6;
-margin-bottom:18px;
+
+margin-bottom:20px;
+
+color:#d1d5db;
+
 }
 
 /* BUTTON */
+
 button{
 
-background:#0284c7;
+background:linear-gradient(45deg,#0ea5e9,#38bdf8);
+
 border:none;
+
 padding:10px 18px;
+
 border-radius:8px;
+
 color:white;
+
 cursor:pointer;
+
 font-size:14px;
+
+transition:0.3s;
 
 }
 
 button:hover{
-background:#0ea5e9;
+
+transform:scale(1.05);
+
+box-shadow:0 0 15px #38bdf8;
+
 }
 
 /* POPUP */
@@ -112,38 +184,51 @@ background:#0ea5e9;
 .popup{
 
 display:none;
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
+
 height:100%;
-background:rgba(0,0,0,0.9);
+
+background:rgba(0,0,0,0.85);
 
 justify-content:center;
+
 align-items:center;
 
-padding:15px;
+padding:20px;
 
 }
 
 .popup-content{
 
-width:100%;
-max-width:900px;
-
 background:#020617;
 
-padding:15px;
+width:100%;
+
+max-width:900px;
 
 border-radius:15px;
+
+padding:20px;
+
+box-shadow:0 0 30px #0ea5e9;
 
 }
 
 iframe{
 
 width:100%;
+
 height:65vh;
+
 border:none;
+
 border-radius:10px;
 
 }
@@ -151,7 +236,9 @@ border-radius:10px;
 .close{
 
 float:right;
-font-size:22px;
+
+font-size:24px;
+
 cursor:pointer;
 
 }
@@ -161,23 +248,12 @@ cursor:pointer;
 footer{
 
 text-align:center;
-padding:25px;
+
+padding:30px;
+
 font-size:13px;
+
 color:#94a3b8;
-
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-.card{
-padding:18px;
-}
-
-iframe{
-height:55vh;
-}
 
 }
 
@@ -197,7 +273,57 @@ height:55vh;
 
 </header>
 
-<!-- isi card tetap sama seperti punyamu -->
+<div class="container">
+
+<div class="card">
+<h2>Constructor</h2>
+<p>Constructor adalah method khusus yang otomatis dipanggil ketika objek dibuat untuk memberikan nilai awal pada atribut.</p>
+<button onclick="openPopup(0)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Default Constructor</h2>
+<p>Default constructor adalah constructor yang digunakan langsung saat objek dibuat tanpa perlu membuat constructor tambahan.</p>
+<button onclick="openPopup(1)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Named Constructor</h2>
+<p>Named constructor memungkinkan pembuatan objek dengan cara yang berbeda menggunakan nama constructor tambahan.</p>
+<button onclick="openPopup(2)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Constant Constructor</h2>
+<p>Constant constructor digunakan untuk membuat objek yang nilainya tidak berubah karena menggunakan atribut final.</p>
+<button onclick="openPopup(3)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Initializer List</h2>
+<p>Initializer list digunakan untuk menginisialisasi nilai atribut sebelum constructor dijalankan.</p>
+<button onclick="openPopup(4)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Public dan Private</h2>
+<p>Public dan private digunakan untuk mengatur akses terhadap atribut dalam class.</p>
+<button onclick="openPopup(5)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Getter dan Setter</h2>
+<p>Getter dan setter digunakan untuk mengambil dan mengubah nilai atribut secara terkontrol.</p>
+<button onclick="openPopup(6)">Lihat Program</button>
+</div>
+
+<div class="card">
+<h2>Enkapsulasi</h2>
+<p>Enkapsulasi adalah konsep OOP untuk menyembunyikan data dan memberikan akses melalui method.</p>
+<button onclick="openPopup(7)">Lihat Program</button>
+</div>
+
+</div>
 
 <div class="popup" id="popup">
 
@@ -246,26 +372,17 @@ document.getElementById("popup").style.display="none";
 
 }
 
-/* GALAXY */
+/* STAR */
 
 const canvas=document.getElementById("stars");
-
 const ctx=canvas.getContext("2d");
-
-function resize(){
 
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
-}
-
-resize();
-
-window.addEventListener("resize",resize);
-
 let stars=[];
 
-for(let i=0;i<250;i++){
+for(let i=0;i<200;i++){
 
 stars.push({
 
@@ -286,12 +403,10 @@ ctx.fillStyle="white";
 stars.forEach(s=>{
 
 ctx.beginPath();
-
 ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
-
 ctx.fill();
 
-s.y+=0.2;
+s.y+=0.3;
 
 if(s.y>canvas.height){
 
@@ -306,6 +421,26 @@ requestAnimationFrame(draw);
 }
 
 draw();
+
+/* CARD ANIMATION */
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+cards.forEach(card=>observer.observe(card));
 
 </script>
 
