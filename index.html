@@ -281,10 +281,8 @@
     <section>
       <h2>01. Constructor</h2>
       <p>Constructor adalah method khusus dalam sebuah class yang otomatis dijalankan saat objek dibuat.
-        Fungsinya untuk memberikan nilai awal pada atribut atau properti objek.
-        Dalam konsep Object Oriented Programming, constructor membantu proses inisialisasi objek agar objek 
-        langsung memiliki data ketika dibuat. Pada bahasa pemrograman seperti Dart,
-        constructor biasanya memiliki nama yang sama dengan class dan dapat menerima parameter untuk mengisi nilai atribut.</p>
+        Fungsinya untuk memberikan nilai awal pada atribut atau properti objek. Dalam konsep Object Oriented Programming,
+        constructor membantu proses inisialisasi objek agar objek  langsung memiliki data ketika dibuat. .</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -313,8 +311,8 @@ void main() {
     </section>
 
     <section>
-      <h2>04. Object Instantiation</h2>
-      <p>Proses menciptakan objek konkret dari class Car yang telah didefinisikan sebelumnya menggunakan fungsi main().
+      <h2>02. Default Constructor</h2>
+      <p>Default constructor adalah constructor yang digunakan langsung saat objek dibuat tanpa perlu membuat constructor tambahan.
       </p>
 
       <div class="code-container">
@@ -322,24 +320,36 @@ void main() {
         <pre><code>// Nama   : Uliya Gumpari
 // Nim    : 251410008
 // Kelas  : SI2A
+
+class Buku {
+  String? judul;
+  int? tahun;
+
+  Buku(this.judul, this.tahun);
+
+  Buku.baru() {
+    judul = "Pemrograman Dart";
+    tahun = 2024;
+  }
+
+  void tampil() {
+    print("$judul - $tahun");
+  }
+}
 
 void main() {
-  Car myCar = Car();
-  
-  myCar.model = "Sedan";
-  myCar.color = "Merah";
-
-  myCar.start();
-  myCar.stop();
+  var b = Buku.baru();
+  b.tampil();
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=a59becbbf41a03e8e27904b0a24e343d')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=a9b94f9d14c5a117775a665534ccca55')">Run Program</button>
     </section>
 
     <section>
-      <h2>05. Constructor</h2>
-      <p>Constructor memudahkan kita mengisi nilai atribut langsung saat objek diciptakan (inisialisasi).</p>
+      <h2>03. Named Constructor</h2>
+      <p>Named constructor memungkinkan pembuatan objek dengan cara yang berbeda menggunakan nama constructor tambahan.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -347,24 +357,31 @@ void main() {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Car {
-  String? model;
-  String? color;
+class Laptop {
+  String merk;
+  int ram;
 
-  Car(this.model, this.color);
+  Laptop(this.merk, this.ram);
 
-  void start() {
-    print('Engine Online: $model');
+  void tampil() {
+    print("Laptop: $merk");
+    print("RAM: ${ram}GB");
   }
+}
+
+void main() {
+  var l = Laptop("Asus", 8);
+  l.tampil();
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=6eae1d6adfb21db2802fdb1cff6b8145')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=25efca52d8ff16170c292b4460287493')">Run Program</button>
     </section>
 
     <section>
-      <h2>06. Practice: Mahasiswa</h2>
-      <p>Implementasi objek Mahasiswa untuk mengelola data akademik secara terstruktur.</p>
+      <h2>04. Constant Constructor</h2>
+      <p>Constant constructor digunakan untuk membuat objek yang nilainya tidak berubah karena menggunakan atribut.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -372,25 +389,27 @@ class Car {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Mahasiswa {
-  String nama;
-  String nim;
-  double ipk;
+class Warna {
+  final int r;
+  final int g;
+  final int b;
 
-  Mahasiswa(this.nama, this.nim, this.ipk);
+  const Warna(this.r, this.g, this.b);
+}
 
-  void tampilkanData() {
-    print('NAMA : $nama | NIM : $nim | IPK : $ipk');
-  }
+void main() {
+  const biru = Warna(0, 0, 255);
+  print("RGB: ${biru.r}, ${biru.g}, ${biru.b}");
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=439107faeb99c8eacd21c700a221ac26')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=6ccaec7c380565edfe9ef90eebfa4754')">Run Program</button>
     </section>
 
     <section>
-      <h2>07. Encapsulation</h2>
-      <p>Teknik keamanan data dengan menyembunyikan akses langsung ke variabel internal menggunakan prefix underscore.
+      <h2>05. Initializer List</h2>
+      <p>Initializer list digunakan untuk menginisialisasi nilai atribut sebelum constructor dijalankan.
       </p>
 
       <div class="code-container">
@@ -399,23 +418,33 @@ class Mahasiswa {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Person {
-  String _name;
-  int age;
+class Lingkaran {
+  final double r;
+  final double luas;
 
-  Person(this._name, this.age);
+  Lingkaran(double radius)
+      : r = radius,
+        luas = 3.14 * radius * radius;
 
-  void setName(String name) => _name = name;
-  String getName() => _name;
+  void tampil() {
+    print("Jari-jari: $r");
+    print("Luas: $luas");
+  }
+}
+
+void main() {
+  var l = Lingkaran(7);
+  l.tampil();
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=80005406bce540c3c8f297767a56bc78')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=8deb8c7967c461c4bf87dae44d88c0ea')">Run Program</button>
     </section>
 
     <section>
-      <h2>08. This Keyword</h2>
-      <p>Rujukan eksplisit ke instance class saat ini untuk menghindari kebingungan nama antara field dan parameter.</p>
+      <h2>06. Public dan Private</h2>
+      <p>Public dan private digunakan untuk mengatur akses terhadap atribut dalam class..</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -423,18 +452,24 @@ class Person {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Product {
-  String nama;
-  Product(this.nama);
+class Akun {
+  String username = "uliya";
+  String _password = "12345";
+}
+
+void main() {
+  var akun = Akun();
+  print("Username: ${akun.username}");
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=82c181bd4ca39d448c0f07e21ac95284')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=69ca2d83e1cb329672c55d5652a3db64')">Run Program</button>
     </section>
 
     <section>
-      <h2>09. Product Class</h2>
-      <p>Penggunaan Named Parameters dan Required untuk menciptakan objek yang lebih deskriptif dan aman.</p>
+      <h2>07. Getter dan setter</h2>
+      <p>Getter dan setter digunakan untuk mengambil dan mengubah nilai atribut secara terkontrol.</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -442,23 +477,31 @@ class Product {
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Produk {
-  final String id, nama;
-  final double harga;
+class User {
+  String _nama = "";
 
-  Produk({
-    required this.id,
-    required this.nama,
-    required this.harga,
-  });
+  set nama(String value) {
+    if (value.length >= 3) {
+      _nama = value
+    }
+  }
+
+  String get nama => _nama;
+}
+
+void main() {
+  var u = User();
+  u.nama = "Uliya";
+  print("Nama: ${u.nama}");
+}
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=26742bdfe9ccde1c2400d9d5e3c40eff')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=a95bf60df5366b4804bff7e7cab10c9f')">Run Program</button>
     </section>
 
     <section>
-      <h2>10. Kesimpulan</h2>
+      <h2>08. Kesimp</h2>
       <p>Pemrograman Berorientasi Objek di Dart memberikan fondasi yang kuat untuk membangun aplikasi yang bersih,
         modular, dan siap dikembangkan lebih jauh.</p>
     </section>
