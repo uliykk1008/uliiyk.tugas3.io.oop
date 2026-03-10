@@ -279,10 +279,9 @@
   <div class="container">
 
     <section>
-      <h2>01. Constructor</h2>
-      <p>Constructor adalah method khusus dalam sebuah class yang otomatis dijalankan saat objek dibuat.
-        Fungsinya untuk memberikan nilai awal pada atribut atau properti objek. Dalam konsep Object Oriented Programming,
-        constructor membantu proses inisialisasi objek agar objek  langsung memiliki data ketika dibuat. .</p>
+      <h2>01. Constructor & Named Constructor</h2>
+      <p>Constructor adalah method khusus dalam class yang otomatis dipanggil ketika objek dibuat. Constructor digunakan untuk memberikan nilai awal pada atribut objek.
+Selain constructor biasa, dalam Dart juga terdapat named constructor, yaitu constructor yang memiliki nama tambahan sehingga objek dapat dibuat dengan cara yang berbeda sesuai kebutuhan. .</p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -290,19 +289,38 @@
 // Nim    : 251410008
 // Kelas  : SI2A
 
-class Mahasiswa {
-  String nama;
+class Mobil {
+  String? merk;
+  int? tahun;
 
-  Mahasiswa(this.nama);
+  Mobil(this.merk, this.tahun);
 
-  void info() {
-    print("Mahasiswa: $nama");
+  Mobil.baru() {
+    merk = 'Toyota';
+    tahun = 2023;
+  }
+
+  Mobil.dariJson(Map<String, dynamic> json) {
+    merk = json['merk'];
+    tahun = json['tahun'];
+  }
+
+  @override
+  String toString() {
+    return 'Mobil{merk: $merk, tahun: $tahun}';
   }
 }
 
 void main() {
-  var m1 = Mahasiswa("Uliya");
-  m1.info();
+  var mobilA = Mobil('Honda', 2020);
+  print(mobilA);
+
+  var mobilB = Mobil.baru();
+  print(mobilB);
+
+  var mobilC = Mobil.dariJson({"merk":"Suzuki","tahun":2021});
+  print(mobilC);
+}
 }
 }</code></pre>
       </div>
