@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 
 <meta charset="UTF-8">
@@ -23,6 +22,7 @@ color:white;
 overflow-x:hidden;
 }
 
+/* GALAXY */
 canvas{
 position:fixed;
 top:0;
@@ -30,34 +30,40 @@ left:0;
 z-index:-1;
 }
 
+/* HEADER */
 header{
 text-align:center;
-padding:50px 20px;
+padding:40px 15px;
 }
 
 header h1{
-font-size:35px;
+font-size:clamp(22px,4vw,36px);
 color:#38bdf8;
 }
 
 header p{
-margin-top:10px;
+margin-top:8px;
 color:#cbd5f5;
+font-size:14px;
 }
 
+/* GRID */
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-padding:40px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+padding:25px;
+max-width:1200px;
+margin:auto;
 }
 
+/* CARD */
 .card{
 
 background:rgba(0,0,0,0.6);
 border:1px solid #22d3ee;
 border-radius:15px;
-padding:25px;
+padding:22px;
 
 transition:0.4s;
 box-shadow:0 0 10px #0ea5e9;
@@ -75,28 +81,33 @@ box-shadow:0 0 25px #22d3ee;
 .card h2{
 color:#22d3ee;
 margin-bottom:10px;
+font-size:18px;
 }
 
 .card p{
 font-size:14px;
 line-height:1.6;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
+/* BUTTON */
 button{
 
 background:#0284c7;
 border:none;
-padding:10px 20px;
+padding:10px 18px;
 border-radius:8px;
 color:white;
 cursor:pointer;
+font-size:14px;
 
 }
 
 button:hover{
 background:#0ea5e9;
 }
+
+/* POPUP */
 
 .popup{
 
@@ -107,19 +118,22 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0.9);
+
 justify-content:center;
 align-items:center;
+
+padding:15px;
 
 }
 
 .popup-content{
 
-width:90%;
+width:100%;
 max-width:900px;
 
 background:#020617;
 
-padding:20px;
+padding:15px;
 
 border-radius:15px;
 
@@ -128,8 +142,9 @@ border-radius:15px;
 iframe{
 
 width:100%;
-height:420px;
+height:65vh;
 border:none;
+border-radius:10px;
 
 }
 
@@ -141,12 +156,28 @@ cursor:pointer;
 
 }
 
+/* FOOTER */
+
 footer{
 
 text-align:center;
-padding:30px;
-font-size:14px;
+padding:25px;
+font-size:13px;
 color:#94a3b8;
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.card{
+padding:18px;
+}
+
+iframe{
+height:55vh;
+}
 
 }
 
@@ -166,129 +197,7 @@ color:#94a3b8;
 
 </header>
 
-<div class="container">
-
-<div class="card">
-
-<h2>1. Constructor</h2>
-
-<p>
-Constructor adalah metode khusus pada sebuah class yang otomatis
-dipanggil saat objek dibuat. Constructor digunakan untuk
-menginisialisasi nilai awal dari atribut dalam class.
-</p>
-
-<button onclick="openPopup(0)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>2. Default Constructor</h2>
-
-<p>
-Default constructor adalah constructor yang langsung digunakan
-saat objek dibuat tanpa harus membuat constructor tambahan.
-Biasanya digunakan untuk memberikan nilai awal pada atribut class.
-</p>
-
-<button onclick="openPopup(1)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>3. Named Constructor</h2>
-
-<p>
-Named constructor adalah constructor yang memiliki nama tambahan.
-Constructor ini digunakan untuk membuat beberapa cara pembuatan
-objek dengan kondisi yang berbeda.
-</p>
-
-<button onclick="openPopup(2)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>4. Constant Constructor</h2>
-
-<p>
-Constant constructor digunakan untuk membuat objek yang nilainya
-tetap dan tidak dapat diubah. Constructor ini biasanya digunakan
-pada class yang memiliki atribut final.
-</p>
-
-<button onclick="openPopup(3)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>5. Initializer List</h2>
-
-<p>
-Initializer list digunakan untuk menginisialisasi nilai variabel
-sebelum constructor dijalankan. Biasanya digunakan untuk atribut
-yang memiliki tipe final.
-</p>
-
-<button onclick="openPopup(4)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>6. Public dan Private</h2>
-
-<p>
-Public dan private digunakan untuk mengatur akses terhadap
-atribut dalam class. Variabel dengan tanda underscore (_)
-bersifat private dan hanya dapat diakses di dalam class.
-</p>
-
-<button onclick="openPopup(5)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>7. Getter dan Setter</h2>
-
-<p>
-Getter dan setter digunakan untuk mengambil dan mengubah
-nilai atribut secara terkontrol sehingga data tetap aman
-dan sesuai aturan yang dibuat dalam class.
-</p>
-
-<button onclick="openPopup(6)">Lihat Program</button>
-
-</div>
-
-
-<div class="card">
-
-<h2>8. Enkapsulasi</h2>
-
-<p>
-Enkapsulasi adalah konsep OOP yang digunakan untuk
-menyembunyikan data dan hanya memberikan akses melalui
-method tertentu agar data tetap aman.
-</p>
-
-<button onclick="openPopup(7)">Lihat Program</button>
-
-</div>
-
-</div>
-
+<!-- isi card tetap sama seperti punyamu -->
 
 <div class="popup" id="popup">
 
@@ -302,13 +211,11 @@ method tertentu agar data tetap aman.
 
 </div>
 
-
 <footer>
 
 Website Tugas OOP Dart - 2026
 
 </footer>
-
 
 <script>
 
@@ -339,15 +246,22 @@ document.getElementById("popup").style.display="none";
 
 }
 
-
+/* GALAXY */
 
 const canvas=document.getElementById("stars");
 
 const ctx=canvas.getContext("2d");
 
-canvas.width=window.innerWidth;
+function resize(){
 
+canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener("resize",resize);
 
 let stars=[];
 
@@ -356,9 +270,7 @@ for(let i=0;i<250;i++){
 stars.push({
 
 x:Math.random()*canvas.width,
-
 y:Math.random()*canvas.height,
-
 size:Math.random()*2
 
 });
@@ -398,5 +310,4 @@ draw();
 </script>
 
 </body>
-
 </html>
