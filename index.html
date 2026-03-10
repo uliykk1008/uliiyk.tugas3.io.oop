@@ -637,8 +637,6 @@ void main() {
     <li>Buat program sederhana untuk simulasi transaksi.</li>
   </ul>
 
-</section>
-
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
         <pre><code>// Nama   : Uliya Gumpari
@@ -690,7 +688,7 @@ void main() {
 }</code></pre>
       </div>
 
-      <button onclick="openModal('https://dartpad.dev/?id=b87f6c0c3746e4602455e06649ed1def')">Run Program</button>
+      <button onclick="openModal('https://dartpad.dev/?id=b87f6c0c3746e4602455e06649ed1def&run=true')">Run Program</button>
     </section>
 
   </div>
@@ -713,7 +711,7 @@ void main() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+          entry.target.add("show");
         }
       });
     }, { threshold: 0.1 });
