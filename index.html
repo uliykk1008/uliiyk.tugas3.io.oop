@@ -330,6 +330,21 @@ void main() {
     </section>
 
     <section>
+  <h2>02. Jenis-jenis Constructor di Dart</h2>
+  <ul>
+    <li><span class="highlight">Default Constructor</span>: Constructor bawaan yang otomatis dibuat oleh Dart jika tidak ada constructor lain di dalam class. Bentuknya <b>ClassName()</b>.</li>
+    
+    <li><span class="highlight">Named Constructor</span>: Constructor yang memiliki nama tambahan sehingga objek dapat dibuat dengan cara yang berbeda. Bentuknya <b>ClassName.nama()</b>.</li>
+    
+    <li><span class="highlight">Parameterized Constructor</span>: Constructor yang menggunakan parameter untuk memberikan nilai awal pada atribut ketika objek dibuat. Bentuknya <b>ClassName(this.param)</b>.</li>
+    
+    <li><span class="highlight">Constant Constructor</span>: Digunakan untuk membuat objek yang bersifat konstan dan biasanya digunakan jika atribut dalam class bersifat <b>final</b>. Bentuknya <b>const ClassName()</b>.</li>
+    
+    <li><span class="highlight">Factory Constructor</span>: Constructor yang digunakan untuk mengontrol proses pembuatan objek dan dapat mengembalikan objek baru atau objek yang sudah ada. Biasanya dibahas lebih lanjut pada materi lanjutan.</li>
+  </ul>
+</section>
+
+    <section>
       <h2>02. Constant Constructor</h2>
       <p>Constant constructor adalah constructor yang digunakan untuk membuat objek konstan. Constructor ini biasanya digunakan
         ketika semua atribut pada class bersifat final, sehingga nilai objek tidak dapat diubah setelah dibuat.
