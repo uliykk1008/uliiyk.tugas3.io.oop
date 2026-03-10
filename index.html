@@ -485,8 +485,12 @@ class Person {
 
   Person(this._name, this.age);
 
-  String get getName1 {
-    return _name;
+  set setName1(String name) {
+    _name = name;
+  }
+
+  void setName(String name) {
+    _name = name;
   }
 
   String getName() {
@@ -496,8 +500,12 @@ class Person {
 
 void main() {
   Person person = Person("Salma", 20);
+
+  person.setName('Aqila');
   print(person.getName());
-  print(person.getName1);
+
+  person.setName1 = 'Nabila';
+  print(person.getName());
 }
 }</code></pre>
       </div>
