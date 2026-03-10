@@ -1,226 +1,402 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laporan OOP Dart</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>OOP Dart - Uliya Gumpari</title>
+
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
 
-    body {
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        color: #333;
-    }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial;
+}
 
-    .cover {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-        padding: 20px;
-    }
+body{
+background:black;
+color:white;
+overflow-x:hidden;
+}
 
-    .cover h1 {
-        font-size: 40px;
-        margin-bottom: 15px;
-    }
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
 
-    .cover h2 {
-        font-weight: normal;
-        margin-bottom: 30px;
-    }
+header{
+text-align:center;
+padding:50px 20px;
+}
 
-    .identity {
-        background: rgba(255,255,255,0.15);
-        padding: 20px 40px;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-    }
+header h1{
+font-size:35px;
+color:#38bdf8;
+}
 
-    .container {
-        background: #f4f6f9;
-        padding: 40px;
-    }
+header p{
+margin-top:10px;
+color:#cbd5f5;
+}
 
-    .card {
-        background: white;
-        padding: 25px;
-        margin-bottom: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+padding:40px;
+}
 
-    h3 {
-        margin-bottom: 10px;
-        color: #1e3c72;
-    }
+.card{
 
-    pre {
-        background: #1e1e1e;
-        color: #00ffcc;
-        padding: 15px;
-        border-radius: 10px;
-        overflow-x: auto;
-        margin-top: 10px;
-    }
+background:rgba(0,0,0,0.6);
+border:1px solid #22d3ee;
+border-radius:15px;
+padding:25px;
 
-    ul {
-        margin-left: 20px;
-        margin-top: 10px;
-    }
+transition:0.4s;
+box-shadow:0 0 10px #0ea5e9;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+box-shadow:0 0 25px #22d3ee;
+
+}
+
+.card h2{
+color:#22d3ee;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:14px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+button{
+
+background:#0284c7;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+
+}
+
+button:hover{
+background:#0ea5e9;
+}
+
+.popup{
+
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+
+}
+
+.popup-content{
+
+width:90%;
+max-width:900px;
+
+background:#020617;
+
+padding:20px;
+
+border-radius:15px;
+
+}
+
+iframe{
+
+width:100%;
+height:420px;
+border:none;
+
+}
+
+.close{
+
+float:right;
+font-size:22px;
+cursor:pointer;
+
+}
+
+footer{
+
+text-align:center;
+padding:30px;
+font-size:14px;
+color:#94a3b8;
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<!-- COVER -->
-<section class="cover">
-    <h1>LAPORAN MATERI AJAR</h1>
-    <h2>Pengantar OOP dan Dasar Kelas di Dart</h2>
-    <div class="identity">
-        <p><b>Nama :</b> (Isi Nama Kamu)</p>
-        <p><b>NIM :</b> (Isi NIM Kamu)</p>
-        <p><b>Mata Kuliah :</b> Pemrograman Berbasis Objek</p>
-        <p><b>Dosen :</b> (Isi Nama Dosen)</p>
-    </div>
-</section>
+<canvas id="stars"></canvas>
 
-<!-- ISI -->
-<section class="container">
+<header>
+
+<h1>Object Oriented Programming - Dart</h1>
+
+<p>Nama: Uliya Gumpari | NIM: 251410008 | Kelas: SI2A</p>
+
+</header>
+
+<div class="container">
 
 <div class="card">
-<h3>1. Pengertian OOP</h3>
+
+<h2>1. Constructor</h2>
+
 <p>
-OOP adalah paradigma pemrograman yang berfokus pada objek.
-Objek memiliki data (state) dan perilaku (behavior).
-Tujuan OOP adalah membuat kode lebih terstruktur, reusable, dan mudah dikembangkan.
+Constructor adalah metode khusus pada sebuah class yang otomatis
+dipanggil saat objek dibuat. Constructor digunakan untuk
+menginisialisasi nilai awal dari atribut dalam class.
 </p>
+
+<button onclick="openPopup(0)">Lihat Program</button>
+
 </div>
 
-<div class="card">
-<h3>2. Konsep Kelas dan Objek</h3>
-<ul>
-<li><b>Kelas</b> adalah blueprint atau cetakan.</li>
-<li><b>Objek</b> adalah hasil dari kelas.</li>
-<li><b>Atribut</b> adalah variabel dalam kelas.</li>
-<li><b>Metode</b> adalah fungsi dalam kelas.</li>
-</ul>
-</div>
 
 <div class="card">
-<h3>3. Contoh Kelas Car</h3>
-<pre>
-class Car {
-  String? model;
-  String? color;
 
-  void start() {
-    print('Car started!');
-  }
+<h2>2. Default Constructor</h2>
 
-  void stop() {
-    print('Car stopped!');
-  }
-}
-</pre>
-</div>
-
-<div class="card">
-<h3>4. Constructor di Dart</h3>
-<p>Constructor digunakan untuk menginisialisasi atribut saat objek dibuat.</p>
-<pre>
-class Car {
-  String? model;
-  String? color;
-
-  Car(this.model, this.color);
-}
-</pre>
-</div>
-
-<div class="card">
-<h3>5. Praktik Kelas Mahasiswa</h3>
-<pre>
-class Mahasiswa {
-  String nama;
-  String nim;
-  double ipk;
-
-  Mahasiswa(this.nama, this.nim, this.ipk);
-
-  void tampilkanData() {
-    print('Nama : $nama');
-    print('NIM  : $nim');
-    print('IPK  : $ipk');
-  }
-}
-</pre>
-</div>
-
-<div class="card">
-<h3>6. Encapsulation (Person)</h3>
-<pre>
-class Person {
-  String _name;
-  int age;
-
-  Person(this._name, this.age);
-
-  void setName(String name) {
-    _name = name;
-  }
-
-  String getName() {
-    return _name;
-  }
-}
-</pre>
-</div>
-
-<div class="card">
-<h3>7. Jawaban Quiz (Slide 14)</h3>
-
-<p><b>Perbedaan kelas dan objek:</b><br>
-Kelas adalah blueprint, objek adalah hasil dari blueprint tersebut.</p>
-
-<p><b>3 Keuntungan OOP:</b></p>
-<ul>
-<li>Kode lebih rapi dan terstruktur.</li>
-<li>Dapat digunakan kembali.</li>
-<li>Mudah dikembangkan.</li>
-</ul>
-
-<p><b>Tugas Bonus - Kelas Hewan:</b></p>
-<pre>
-class Hewan {
-  String nama;
-
-  Hewan(this.nama);
-
-  void bersuara() {
-    print("$nama sedang bersuara");
-  }
-}
-</pre>
-</div>
-
-<div class="card">
-<h3>Kesimpulan</h3>
 <p>
-OOP membantu membuat program lebih terstruktur.
-Kelas adalah cetakan, objek adalah hasilnya.
-Constructor berfungsi untuk menginisialisasi data saat objek dibuat.
+Default constructor adalah constructor yang langsung digunakan
+saat objek dibuat tanpa harus membuat constructor tambahan.
+Biasanya digunakan untuk memberikan nilai awal pada atribut class.
 </p>
+
+<button onclick="openPopup(1)">Lihat Program</button>
+
 </div>
 
-</section>
+
+<div class="card">
+
+<h2>3. Named Constructor</h2>
+
+<p>
+Named constructor adalah constructor yang memiliki nama tambahan.
+Constructor ini digunakan untuk membuat beberapa cara pembuatan
+objek dengan kondisi yang berbeda.
+</p>
+
+<button onclick="openPopup(2)">Lihat Program</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>4. Constant Constructor</h2>
+
+<p>
+Constant constructor digunakan untuk membuat objek yang nilainya
+tetap dan tidak dapat diubah. Constructor ini biasanya digunakan
+pada class yang memiliki atribut final.
+</p>
+
+<button onclick="openPopup(3)">Lihat Program</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>5. Initializer List</h2>
+
+<p>
+Initializer list digunakan untuk menginisialisasi nilai variabel
+sebelum constructor dijalankan. Biasanya digunakan untuk atribut
+yang memiliki tipe final.
+</p>
+
+<button onclick="openPopup(4)">Lihat Program</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>6. Public dan Private</h2>
+
+<p>
+Public dan private digunakan untuk mengatur akses terhadap
+atribut dalam class. Variabel dengan tanda underscore (_)
+bersifat private dan hanya dapat diakses di dalam class.
+</p>
+
+<button onclick="openPopup(5)">Lihat Program</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>7. Getter dan Setter</h2>
+
+<p>
+Getter dan setter digunakan untuk mengambil dan mengubah
+nilai atribut secara terkontrol sehingga data tetap aman
+dan sesuai aturan yang dibuat dalam class.
+</p>
+
+<button onclick="openPopup(6)">Lihat Program</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>8. Enkapsulasi</h2>
+
+<p>
+Enkapsulasi adalah konsep OOP yang digunakan untuk
+menyembunyikan data dan hanya memberikan akses melalui
+method tertentu agar data tetap aman.
+</p>
+
+<button onclick="openPopup(7)">Lihat Program</button>
+
+</div>
+
+</div>
+
+
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">✖</span>
+
+<iframe id="dartframe"></iframe>
+
+</div>
+
+</div>
+
+
+<footer>
+
+Website Tugas OOP Dart - 2026
+
+</footer>
+
+
+<script>
+
+const links=[
+
+"https://dartpad.dev/?id=2ffef3d81726bfde3daa75f5ab548ef9",
+"https://dartpad.dev/?id=25efca52d8ff16170c292b4460287493",
+"https://dartpad.dev/?id=a9b94f9d14c5a117775a665534ccca55",
+"https://dartpad.dev/?id=6ccaec7c380565edfe9ef90eebfa4754",
+"https://dartpad.dev/?id=8deb8c7967c461c4bf87dae44d88c0ea",
+"https://dartpad.dev/?id=69ca2d83e1cb329672c55d5652a3db64",
+"https://dartpad.dev/?id=a95bf60df5366b4804bff7e7cab10c9f",
+"https://dartpad.dev/?id=76eba14427fb1c7a95b2bc2b0cb0a4e4"
+
+];
+
+function openPopup(i){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("dartframe").src=links[i];
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+
+
+const canvas=document.getElementById("stars");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let stars=[];
+
+for(let i=0;i<250;i++){
+
+stars.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+size:Math.random()*2
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+stars.forEach(s=>{
+
+ctx.beginPath();
+
+ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
+
+ctx.fill();
+
+s.y+=0.2;
+
+if(s.y>canvas.height){
+
+s.y=0;
+
+}
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
 
 </body>
+
 </html>
