@@ -501,9 +501,46 @@ void main() {
     </section>
 
     <section>
-      <h2>08. Kesimp</h2>
-      <p>Pemrograman Berorientasi Objek di Dart memberikan fondasi yang kuat untuk membangun aplikasi yang bersih,
-        modular, dan siap dikembangkan lebih jauh.</p>
+      <h2>08. Enklapsulasi</h2>
+      <p>Enkapsulasi adalah konsep OOP untuk menyembunyikan data dan memberikan akses melalui method.</p>
+       <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class User {
+  String _username = "";
+  String _email = "";
+
+  set username(String value) {
+    if (value.length >= 5) {
+      _username = value;
+    }
+  }
+
+  set email(String value) {
+    if (value.contains("@")) {
+      _email = value;
+    }
+  }
+
+  void tampil() {
+    print("Username: $_username");
+    print("Email: $_email");
+  }
+}
+
+void main() {
+  var user = User();
+  user.username = "uliya12";
+  user.email = "uliya@gmail.com";
+  user.tampil();
+}
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=76eba14427fb1c7a95b2bc2b0cb0a4e4')">Run Program</button>
     </section>
 
     <section>
