@@ -495,19 +495,22 @@ void main(){
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
         <pre><code>// Nama   : Uliya Gumpari
-// Nim    : 251410008
-// Kelas  : SI2A
+// NIM   : 251410008
+// Kelas : SI2A
 
 class Person {
-  String _name;
+  String name;
   int age;
 
-  Person(this._name, this.age);
+  Person(this.name, this.age);
 }
 
 void main() {
-  Person person = Person("Salma", 20);
-  print(person.age);
+  var person = Person("Uliya", 18);
+
+  print("Nama: ${person.name}");
+  print("Umur: ${person.age}");
+}
 }
 }</code></pre>
       </div>
