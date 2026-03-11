@@ -326,7 +326,7 @@ void main() {
   </div>
 
   <button onclick="openModal('https://dartpad.dev/?id=5bda0609a45ea43692a628c2245cd962&run=true')">Run Program</button>
-   <section>
+   </section>
 
     <section>
   <h2>02. Jenis-jenis Constructor di Dart</h2>
@@ -344,10 +344,11 @@ void main() {
 </section>
 
     <section>
-      <h2>02. Named Constructor-contoh</h2>
+      <h2>03. Named Constructor-contoh</h2>
       <p>Named constructor adalah constructor yang memiliki nama tambahan dalam sebuah class.
 Constructor ini digunakan untuk membuat objek dengan cara yang berbeda dari constructor utama.
-Dalam Dart, penulisannya menggunakan format .</p>
+Dalam Dart, penulisannya menggunakan format .<span class="highlight">NamaClass.namaConstructor()</span>.
+      </p>
 
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
@@ -414,7 +415,7 @@ void main() {
     </section>
 
     <section>
-      <h2>03. Constant Constructor</h2>
+      <h2>04. Constant Constructor</h2>
       <p>Constant constructor adalah constructor yang digunakan untuk membuat objek konstan. Constructor ini biasanya digunakan
         ketika semua atribut pada class bersifat final, sehingga nilai objek tidak dapat diubah setelah dibuat.
       </p>
@@ -449,7 +450,7 @@ void main() {
     </section>
 
     <section>
-      <h2>04. Initializer List</h2>
+      <h2>05. Initializer List</h2>
       <p>Initializer list adalah cara untuk menginisialisasi nilai atribut sebelum constructor dijalankan. Teknik ini biasanya
         digunakan ketika nilai atributperlu diproses terlebih dahulu, misalnya mengambil nilai absolut dari suatu angka sebelum
         disimpan ke dalam atribut.</p>
@@ -486,7 +487,7 @@ void main(){
     </section>
 
     <section>
-      <h2>05. Public & Private</h2>
+      <h2>06. Public & Private</h2>
       <p>Public dan private digunakan untuk mengatur tingkat akses terhadap atribut atau method dalam sebuah class.
         Dalam Object Oriented Programming, atribut yang diawali dengan tanda _ dianggap private,
         artinya atribut tersebut hanya dapat diakses dari dalam class yang sama.</p>
@@ -515,7 +516,7 @@ void main() {
     </section>
 
     <section>
-      <h2>06. Getter</h2>
+      <h2>07. Getter</h2>
       <p>Getter adalah method yang digunakan untuk mengambil atau membaca nilai atribut dari sebuah class.  Getter biasanya
         digunakan ketika atribut bersifat private sehingga nilai tersebut tidak dapat diakses secara langsung dari luar class.
       </p>
@@ -553,7 +554,7 @@ void main() {
     </section>
 
     <section>
-      <h2>07. Setter</h2>
+      <h2>08. Setter</h2>
       <p>Setter adalah method yang digunakan untuk mengubah atau memperbarui nilai atribut dalam sebuah class.
         Dengan setter, perubahan nilai atribut dapat dikontrol sehingga data tetap valid.</p>
 
@@ -598,7 +599,7 @@ void main() {
     </section>
 
     <section>
-      <h2>08. Encapsulation pada Product</h2>
+      <h2>09. Encapsulation pada Product</h2>
       <p>Encapsulation adalah konsep dalam OOP yang digunakan untuk menyembunyikan data dan mengatur akses terhadap data tersebut melalui method tertentu.
         Pada contoh produk, atribut disembunyikan dan hanya dapat diakses melalui getter dan setter yang memiliki validasi tertentu.</p>
 
@@ -649,7 +650,7 @@ void main() {
     </section>
 
     <section>
-      <h2>09. Encapsulation pada Login System</h2>
+      <h2>10. Encapsulation pada Login System</h2>
       <p>Encapsulation juga dapat digunakan dalam sistem login untuk melindungi data penting seperti password.
         Pada contoh ini, password tidak dapat diakses langsung dari luar class. Pengguna hanya dapat
         melakukan proses login atau mengganti password melalui method yang telah disediakan..</p>
