@@ -703,6 +703,69 @@ void main() {
 
       <button onclick="openModal('https://dartpad.dev/?id=a95bf60df5366b4804bff7e7cab10c9f&run=true')">Run Program</button>
     </section>
+       <section>
+      <h2>12. Praktik 2 Enkapsulasi Lengkap</h2>
+      <p></p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class User {
+  String _username;
+  String _password;
+  String _email;
+
+  User(this._username, this._password, this._email);
+
+  // Getter
+  String get username => _username;
+  String get password => _password;
+  String get email => _email;
+
+  // Setter dengan validasi
+  set username(String value) {
+    if (value.length >= 5) {
+      _username = value;
+    }
+  }
+
+  set password(String value) {
+    if (value.length >= 8) {
+      _password = value;
+    }
+  }
+
+  set email(String value) {
+    if (value.contains("@")) {
+      _email = value;
+    }
+  }
+}
+
+void main() {
+  var user = User("uliya123", "rahasia123", "uliya@gmail.com");
+
+  // mencoba mengubah data
+  user.username = "uliya123";
+  user.password = "rahasia123";
+  user.email = "uliya@gmail.com";
+
+  // output
+  print("User: ${user.username}, Pass: ${user.password}");
+  print("Email: ${user.email}");
+}
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=8c8480e7788dc1fcd3b410feccbb17bb&run=true')">Run Program</button>
+    </section>
+
+
+
+    
 
     <section>
       <h2>12. Encapsulation pada Login System</h2>
