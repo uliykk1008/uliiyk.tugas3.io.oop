@@ -278,6 +278,63 @@
 
   <div class="container">
 
+      <section>
+  <h2>01. Pengenalan Class dan Object</h2>
+
+  <p>
+    Dalam pemrograman berorientasi objek atau <span class="highlight">Object Oriented Programming (OOP)</span>,
+    <b>class</b> merupakan sebuah blueprint atau cetakan yang digunakan untuk membuat objek.
+    Class berisi atribut yang menyimpan data serta method yang digunakan untuk menjalankan
+    suatu proses.
+  </p>
+
+  <p>
+    Sedangkan <b>object</b> adalah hasil dari pembuatan class. Object memiliki nilai dari
+    atribut yang ada di dalam class tersebut. Dengan kata lain, object merupakan
+    representasi nyata dari sebuah class di dalam program.
+  </p>
+
+  <p>
+    Pada contoh berikut dibuat sebuah class bernama <span class="highlight">Buku</span>
+    yang memiliki atribut <b>judul</b>. Constructor digunakan untuk memberikan nilai
+    awal pada atribut tersebut ketika objek buku dibuat.
+  </p>
+
+  <div class="code-container">
+    <div class="code-header">DART SOURCE CODE</div>
+<pre><code>// Nama  : Uliya Gumpari
+// NIM   : 251410008
+// Kelas : SI2A
+
+class Buku {
+  String judul;
+
+  // Constructor
+  Buku(this.judul);
+
+  // Method untuk menampilkan informasi buku
+  void tampilkanInfo() {
+    print('Judul buku yang dipilih adalah: $judul');
+  }
+}
+
+void main() {
+  var buku1 = Buku('Dasar Pemrograman Dart');
+  buku1.tampilkanInfo();
+}
+</code></pre>
+  </div>
+
+  <button onclick="openModal('https://dartpad.dev/')">
+    Run Program
+  </button>
+</section>
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=25efca52d8ff16170c292b4460287493&run=true')">Run Program</button>
+    </section>
+
     <section>
       <h2>01. Constructor & Named Constructor</h2>
       <p>Constructor adalah method khusus dalam class yang otomatis dipanggil ketika objek dibuat. Constructor digunakan untuk 
@@ -287,41 +344,60 @@
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
         <pre><code>// Nama   : Uliya Gumpari
-// Nim    : 251410008
-// Kelas  : SI2A
+// NIM   : 251410008
+// Kelas : SI2A
+
+import 'dart:convert';
 
 class Mobil {
-  String? merk;
-  int? tahun;
+  String merk;
+  int tahun;
 
+  // Constructor utama
   Mobil(this.merk, this.tahun);
 
-  Mobil.baru() {
-    merk = 'Toyota';
-    tahun = 2023;
-  }
+  // Named constructor untuk mobil baru
+  Mobil.mobilBaru()
+      : merk = 'Toyota',
+        tahun = 2023;
 
-  Mobil.dariJson(Map<String, dynamic> json) {
-    merk = json['merk'];
-    tahun = json['tahun'];
-  }
+  // Named constructor dari JSON
+  Mobil.fromJson(Map<String, dynamic> data)
+      : merk = data['merk'],
+        tahun = data['tahun'];
 
-  @override
-  String toString() {
-    return 'Mobil{merk: $merk, tahun: $tahun}';
+  // Method tambahan untuk menampilkan info mobil
+  void infoMobil() {
+    print('Mobil $merk diproduksi pada tahun $tahun');
   }
 }
 
 void main() {
-  var mobilA = Mobil('Honda', 2020);
-  print(mobilA);
+  print('=== Contoh Penggunaan Constructor pada Class Mobil ===\n');
 
-  var mobilB = Mobil.baru();
-  print(mobilB);
+  // 1. Menggunakan constructor biasa
+  var mobil1 = Mobil('Honda', 2020);
+  print('Objek pertama:');
+  mobil1.infoMobil();
 
-  var mobilC = Mobil.dariJson({"merk":"Suzuki","tahun":2021});
-  print(mobilC);
-}
+  print('');
+
+  // 2. Menggunakan named constructor
+  var mobil2 = Mobil.mobilBaru();
+  print('Objek kedua (mobil baru):');
+  mobil2.infoMobil();
+
+  print('');
+
+  // 3. Menggunakan data JSON
+  String jsonString = '{"merk":"Suzuki","tahun":2021}';
+  Map<String, dynamic> data = jsonDecode(jsonString);
+
+  var mobil3 = Mobil.fromJson(data);
+  print('Objek ketiga (dari JSON):');
+  mobil3.infoMobil();
+
+  print('\nProgram selesai dijalankan.');
 }
 }</code></pre>
       </div>
